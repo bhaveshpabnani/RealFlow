@@ -48,7 +48,7 @@ def main():
     print("-" * 50)
     
     try:
-        subprocess.run("poetry run python -m assistant.main", shell=True, check=True)
+        subprocess.run("poetry run python -m src.main", shell=True, check=True)
     except KeyboardInterrupt:
         print("\n\n🛑 Server stopped")
     except subprocess.CalledProcessError as e:

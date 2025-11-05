@@ -5,8 +5,7 @@ description = "Commercial Real Estate AI Agent using Vapi and Cartesia Sonic 3"
 authors = ["bhaveshpabnani <bhaveshpabnani@gmail.com>"]
 readme = "README.md"
 packages = [
-    {include = "assistant", from = "src"},
-    {include = "workflow", from = "src"}
+    {include = "src"}
 ]
 
 [tool.poetry.dependencies]
@@ -39,11 +38,15 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
+# Unified System (Production)
+unified-dev = "src.main:dev"
+unified-start = "src.main:start"
+
 # Assistant (original implementation)
-dev = "assistant.main:dev"
-start = "assistant.main:start"
+assistant-dev = "src.assistant.main:dev"
+assistant-start = "src.assistant.main:start"
 
 # Workflow System (new implementation)
-workflow-dev = "workflow.main:dev"
-workflow-start = "workflow.main:start"
-workflow-cli = "workflow.cli:cli"
+workflow-dev = "src.workflow.main:dev"
+workflow-start = "src.workflow.main:start"
+workflow-cli = "src.workflow.cli:cli"
