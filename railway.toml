@@ -2,11 +2,11 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "poetry run python -m uvicorn src.main:app --host 0.0.0.0 --port $PORT"
+startCommand = "python -m uvicorn src.main:app --host 0.0.0.0 --port $PORT"
 healthcheckPath = "/health"
 healthcheckTimeout = 100
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
 [environments.production.variables]
-PYTHONPATH = "/app"
+PYTHONPATH = "/app:/app/src"
